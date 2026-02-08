@@ -3,6 +3,9 @@ import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { Mail } from "lucide-react";
 import { motion } from "motion/react";
 
+const baseUrl = import.meta.env.BASE_URL;
+const assetPath = (path: string) => encodeURI(`${baseUrl}${path}`);
+
 const INFO_ITEMS = [
   { label: "Name", value: "Jonah Mong Foo Yuen" },
   { label: "Email", value: "mongjonah1229@gmail.com" },
@@ -85,7 +88,7 @@ export const About: React.FC = () => {
             className="w-full h-full lg:p-12 flex items-center justify-center"
           >
             <ImageWithFallback
-              src="/portfolio-v1/images/IMG_3798.JPG"
+              src={assetPath("portfolio-v1/images/IMG_3798.JPG")}
               alt="About Jonah Mong"
               className="w-full h-full object-contain"
             />
@@ -134,7 +137,7 @@ export const About: React.FC = () => {
                 </p>
               </div>
               <a
-                href={encodeURI("/portfolio-v1/pdfs/MONG FOO YUEN RESUME.pdf")}
+                href={assetPath("portfolio-v1/pdfs/MONG FOO YUEN RESUME.pdf")}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-[#c5e6a6] transition-colors"

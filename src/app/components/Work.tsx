@@ -3,14 +3,17 @@ import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { ArrowUpRight, Instagram, BookOpen, Palette, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
+const baseUrl = import.meta.env.BASE_URL;
+const assetPath = (path: string) => encodeURI(`${baseUrl}${path}`);
+
 const WORK_ITEMS = [
   {
     id: 1,
     title: "Commercial Photography - Food",
     category: "Photography",
     year: "2025",
-    image: "/portfolio-v1/images/FINAL.jpg",
-    pdf: "/portfolio-v1/pdfs/Commercial Photography - FOOD.pdf",
+    image: assetPath("portfolio-v1/images/FINAL.jpg"),
+    pdf: assetPath("portfolio-v1/pdfs/Commercial Photography - FOOD.pdf"),
     description: "A commercial food photography series focused on lighting and detail.",
   },
   {
@@ -18,8 +21,8 @@ const WORK_ITEMS = [
     title: "Commercial Photography - Still Life",
     category: "Photography",
     year: "2025",
-    image: "/portfolio-v1/images/perfect 1.jpg",
-    pdf: "/portfolio-v1/pdfs/Commercial Photography - Still Life.pdf",
+    image: assetPath("portfolio-v1/images/perfect 1.jpg"),
+    pdf: assetPath("portfolio-v1/pdfs/Commercial Photography - Still Life.pdf"),
     description: "Still life compositions built around product storytelling.",
   },
   {
@@ -27,8 +30,8 @@ const WORK_ITEMS = [
     title: "Conceptual Photography",
     category: "Photography",
     year: "2025",
-    image: "/portfolio-v1/images/editied A1.png",
-    pdf: "/portfolio-v1/pdfs/Conceptual Photgraphy.pdf",
+    image: assetPath("portfolio-v1/images/editied A1.png"),
+    pdf: assetPath("portfolio-v1/pdfs/Conceptual Photgraphy.pdf"),
     description: "Conceptual photo narratives and visual experimentation.",
   },
   {
@@ -36,8 +39,8 @@ const WORK_ITEMS = [
     title: "Digital Art & Manipulation",
     category: "Digital Art",
     year: "2024",
-    image: "/portfolio-v1/images/Mong_Foo_Yuen_2300143_GD_Final Project_Concept_1.jpg",
-    pdf: "/portfolio-v1/pdfs/Digital Art & Manipulation.pdf",
+    image: assetPath("portfolio-v1/images/Mong_Foo_Yuen_2300143_GD_Final Project_Concept_1.jpg"),
+    pdf: assetPath("portfolio-v1/pdfs/Digital Art & Manipulation.pdf"),
     description: "Digital compositing and photo manipulation practice.",
   },
   {
@@ -45,8 +48,8 @@ const WORK_ITEMS = [
     title: "Type Play & Copywriting",
     category: "Brand Development",
     year: "2022",
-    image: "/portfolio-v1/images/ikf 1.png",
-    pdf: "/portfolio-v1/pdfs/Research And Development.pdf",
+    image: assetPath("portfolio-v1/images/ikf 1.png"),
+    pdf: assetPath("portfolio-v1/pdfs/Research And Development.pdf"),
     description: "Brand development through typographic exploration.",
   },
   {
@@ -54,8 +57,8 @@ const WORK_ITEMS = [
     title: "Commercial Photography - Street Wear",
     category: "Photography",
     year: "2024",
-    image: "/portfolio-v1/images/IMG_7709.jpg",
-    pdf: "/portfolio-v1/pdfs/Commercial Photography - Street Photo.pdf",
+    image: assetPath("portfolio-v1/images/IMG_7709.jpg"),
+    pdf: assetPath("portfolio-v1/pdfs/Commercial Photography - Street Photo.pdf"),
     description: "Street wear campaign visuals and styled photography.",
   },
   {
@@ -63,8 +66,8 @@ const WORK_ITEMS = [
     title: "Kaws - Magazine",
     category: "Layout Design",
     year: "2023",
-    image: "/portfolio-v1/images/kaws.png",
-    pdf: "/portfolio-v1/pdfs/LAYOUT COMPONENTS.pdf",
+    image: assetPath("portfolio-v1/images/kaws.png"),
+    pdf: assetPath("portfolio-v1/pdfs/LAYOUT COMPONENTS.pdf"),
     description: "Magazine layout fundamentals with a Kaws feature spread.",
   },
 ];
@@ -100,7 +103,7 @@ export const Work: React.FC = () => {
               className="w-full h-full relative"
             >
                 <ImageWithFallback
-                  src={encodeURI(hoveredProject.image)}
+                  src={hoveredProject.image}
                 alt={hoveredProject.title}
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
@@ -191,7 +194,7 @@ export const Work: React.FC = () => {
             >
               <div className="h-64 lg:h-[70vh] relative">
                 <ImageWithFallback
-                  src={encodeURI(selectedProject.image)}
+                  src={selectedProject.image}
                   alt={selectedProject.title}
                   className="w-full h-full object-cover"
                 />
@@ -218,7 +221,7 @@ export const Work: React.FC = () => {
                     <span className="text-white/80 font-mono">{selectedProject.year}</span>
                   </div>
                   <a
-                    href={encodeURI(selectedProject.pdf)}
+                    href={selectedProject.pdf}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-8 w-full bg-white text-black rounded-2xl p-5 text-[10px] font-bold uppercase tracking-widest hover:bg-[#c5e6a6] transition-colors text-center"

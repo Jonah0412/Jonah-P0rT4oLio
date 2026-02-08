@@ -2,6 +2,9 @@ import React, { useMemo, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
+const baseUrl = import.meta.env.BASE_URL;
+const assetPath = (path: string) => encodeURI(`${baseUrl}${path}`);
+
 const rawGalleryItems = [
   { title: "Edit 1", file: "edit 1.jpg" },
   { title: "Edited 2", file: "edited 2.jpg" },
@@ -20,7 +23,7 @@ export const Gallery: React.FC = () => {
     () =>
       rawGalleryItems.map((item) => ({
         ...item,
-        src: encodeURI(`/portfolio-v1/images/${item.file}`),
+        src: assetPath(`portfolio-v1/images/${item.file}`),
       })),
     []
   );

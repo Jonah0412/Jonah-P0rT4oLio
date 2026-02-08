@@ -3,45 +3,48 @@ import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { Instagram, BookOpen, Palette, ChevronLeft, ChevronRight, ArrowUpRight, Mail, Camera, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
+const baseUrl = import.meta.env.BASE_URL;
+const assetPath = (path: string) => encodeURI(`${baseUrl}${path}`);
+
 const PROJECTS = [
   {
     id: 1,
     title: "Digital Art & Manipulation",
     category: "Digital Imaging",
-    image: "/portfolio-v1/images/Mong_Foo_Yuen_2300143_GD_Final Project_Concept_1.jpg",
-    pdf: "/portfolio-v1/pdfs/Digital Art & Manipulation.pdf",
+    image: assetPath("portfolio-v1/images/Mong_Foo_Yuen_2300143_GD_Final Project_Concept_1.jpg"),
+    pdf: assetPath("portfolio-v1/pdfs/Digital Art & Manipulation.pdf"),
     description: "Surreal compositions and visual storytelling using advanced photo manipulation.",
   },
   {
     id: 2,
     title: "Research & Development",
     category: "Typography",
-    image: "/portfolio-v1/images/ikf 1.png",
-    pdf: "/portfolio-v1/pdfs/Research And Development.pdf",
+    image: assetPath("portfolio-v1/images/ikf 1.png"),
+    pdf: assetPath("portfolio-v1/pdfs/Research And Development.pdf"),
     description: "Type exploration and development across multiple design systems.",
   },
   {
     id: 3,
     title: "Conceptual Photography",
     category: "Digital Imaging",
-    image: "/portfolio-v1/images/IMG_7709.jpg",
-    pdf: "/portfolio-v1/pdfs/Conceptual Photgraphy.pdf",
+    image: assetPath("portfolio-v1/images/IMG_7709.jpg"),
+    pdf: assetPath("portfolio-v1/pdfs/Conceptual Photgraphy.pdf"),
     description: "Narrative-driven photography exploring mood, light, and subject.",
   },
   {
     id: 4,
     title: "Layout Components",
     category: "Layout Design",
-    image: "/portfolio-v1/images/kaws.png",
-    pdf: "/portfolio-v1/pdfs/LAYOUT COMPONENTS.pdf",
+    image: assetPath("portfolio-v1/images/kaws.png"),
+    pdf: assetPath("portfolio-v1/pdfs/LAYOUT COMPONENTS.pdf"),
     description: "Editorial layouts focused on hierarchy, rhythm, and composition.",
   },
   {
     id: 5,
     title: "Commercial Photography - Food",
     category: "Digital Imaging",
-    image: "/portfolio-v1/images/FINAL.jpg",
-    pdf: "/portfolio-v1/pdfs/Commercial Photography - FOOD.pdf",
+    image: assetPath("portfolio-v1/images/FINAL.jpg"),
+    pdf: assetPath("portfolio-v1/pdfs/Commercial Photography - FOOD.pdf"),
     description: "Product-focused photography with strong lighting direction and styling.",
   },
 ];
@@ -83,7 +86,7 @@ export const Home: React.FC = () => {
                 className="absolute inset-0"
               >
                 <ImageWithFallback
-                  src={encodeURI(PROJECTS[heroIndex].image)}
+                  src={PROJECTS[heroIndex].image}
                   alt={PROJECTS[heroIndex].title}
                   className="w-full h-full object-cover"
                 />
@@ -162,7 +165,7 @@ export const Home: React.FC = () => {
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 rounded-full overflow-hidden border border-white/10 p-0.5">
                   <ImageWithFallback
-                    src="/portfolio-v1/images/IMG_0728.JPG"
+                    src={assetPath("portfolio-v1/images/IMG_0728.JPG")}
                     alt="Jonah Mong"
                     className="w-full h-full object-cover rounded-full"
                   />
@@ -199,7 +202,7 @@ export const Home: React.FC = () => {
                 className="relative aspect-[4/5] rounded-3xl overflow-hidden group cursor-pointer"
               >
                 <ImageWithFallback
-                  src={encodeURI(project.image)}
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
@@ -239,7 +242,7 @@ export const Home: React.FC = () => {
             >
               <div className="h-64 lg:h-[70vh] relative">
                 <ImageWithFallback
-                  src={encodeURI(selectedProject.image)}
+                  src={selectedProject.image}
                   alt={selectedProject.title}
                   className="w-full h-full object-cover"
                 />
@@ -270,7 +273,7 @@ export const Home: React.FC = () => {
                     <span className="text-white/80">Freelance Designer</span>
                   </div>
                   <a
-                    href={encodeURI(selectedProject.pdf)}
+                    href={selectedProject.pdf}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-4 w-full bg-white text-black rounded-2xl p-5 text-[10px] font-bold uppercase tracking-widest hover:bg-[#c5e6a6] transition-colors text-center"

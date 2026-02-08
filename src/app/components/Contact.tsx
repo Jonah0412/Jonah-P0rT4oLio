@@ -3,6 +3,9 @@ import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { Instagram, Bookmark, Palette, ArrowUpRight, Mail, MapPin, Phone, Send } from "lucide-react";
 import { motion } from "motion/react";
 
+const baseUrl = import.meta.env.BASE_URL;
+const assetPath = (path: string) => encodeURI(`${baseUrl}${path}`);
+
 const containerVariants = {
   animate: {
     transition: {
@@ -28,7 +31,7 @@ export const Contact: React.FC = () => {
             className="w-full h-full relative"
           >
                 <ImageWithFallback
-                  src="/portfolio-v1/images/IMG_1721.JPG"
+                  src={assetPath("portfolio-v1/images/IMG_1721.JPG")}
                   alt="Contact background"
               className="w-full h-full object-cover grayscale brightness-50"
             />
@@ -158,7 +161,7 @@ export const Contact: React.FC = () => {
              <motion.div variants={itemVariants} className="bg-[#111] rounded-3xl overflow-hidden border border-white/5 group">
                 <div className="h-40 overflow-hidden">
                   <ImageWithFallback
-                    src="/portfolio-v1/images/IMG_1850.jpeg"
+                    src={assetPath("portfolio-v1/images/IMG_1850.jpeg")}
                     alt="Contact visual"
                     className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110"
                   />
