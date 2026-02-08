@@ -1,6 +1,6 @@
 import React from "react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import { Instagram, BookOpen, Palette, ArrowUpRight, Mail, MapPin, Send } from "lucide-react";
+import { Instagram, Bookmark, Palette, ArrowUpRight, Mail, MapPin, Phone, Send } from "lucide-react";
 import { motion } from "motion/react";
 
 const containerVariants = {
@@ -13,45 +13,65 @@ const containerVariants = {
 
 const itemVariants = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 export const Contact: React.FC = () => {
   return (
-    <div className="pt-24 px-4 lg:h-screen lg:overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:h-[calc(100vh-120px)]">
+    <div className="pt-24 px-4">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Left: Fixed Image (on desktop) */}
-        <div className="lg:col-span-6 h-full rounded-3xl overflow-hidden relative">
+        <div className="lg:col-span-6 lg:sticky lg:top-24 lg:h-[calc(100vh-120px)] rounded-3xl overflow-hidden relative">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="w-full h-full relative"
           >
-            <ImageWithFallback
-              src="https://images.unsplash.com/photo-1637536701374-073adb2ee745?q=80&w=1200"
-              alt="Studio"
+                <ImageWithFallback
+                  src="/portfolio-v1/images/IMG_1721.JPG"
+                  alt="Contact background"
               className="w-full h-full object-cover grayscale brightness-50"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent" />
             <div className="absolute bottom-12 left-12 right-12">
-               <motion.h2 
+                <motion.h2 
                  initial={{ opacity: 0, y: 20 }}
                  animate={{ opacity: 1, y: 0 }}
                  transition={{ delay: 0.3 }}
                  className="text-white text-5xl font-light mb-6"
                >
-                 Let's start a project
+                 Get in touch
                </motion.h2>
                <p className="text-white/60 text-sm max-w-sm leading-relaxed mb-8">
-                 Currently accepting new commissions for 2026. Reach out and I'll get back to you within 24 hours.
+                 Have a project in mind? Let's create something extraordinary together.
                </p>
-               <div className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white">
-                    <MapPin className="w-5 h-5" />
+               <div className="flex flex-col gap-4">
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Location</p>
+                      <p className="text-white text-sm font-medium">Seremban, Negeri Sembilan, Malaysia</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Based in</p>
-                    <p className="text-white text-sm font-medium">Prague, Czech Republic</p>
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Email</p>
+                      <p className="text-white text-sm font-medium">mongjonah1229@gmail.com</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Phone</p>
+                      <p className="text-white text-sm font-medium">+(60)18-614 0251</p>
+                    </div>
                   </div>
                </div>
             </div>
@@ -61,7 +81,7 @@ export const Contact: React.FC = () => {
         {/* Right: Scrolling Form and Details */}
         <motion.div 
           variants={containerVariants}
-          className="lg:col-span-6 lg:overflow-y-auto lg:pr-2 flex flex-col gap-4 pb-12 custom-scrollbar"
+          className="lg:col-span-6 lg:pr-2 flex flex-col gap-4 pb-12"
         >
           <motion.div 
             variants={itemVariants}
@@ -87,6 +107,14 @@ export const Contact: React.FC = () => {
                 </div>
               </div>
               <div className="space-y-2">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-white/40 ml-2">Subject</label>
+                <input
+                  type="text"
+                  placeholder="Project inquiry"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl p-5 text-sm text-white focus:outline-none focus:border-white/30 transition-all placeholder:text-white/20"
+                />
+              </div>
+              <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-white/40 ml-2">Tell me about your vision</label>
                 <textarea 
                   placeholder="Tell me about your project, goals, and timeline..." 
@@ -107,25 +135,37 @@ export const Contact: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
              <motion.div variants={itemVariants} className="bg-[#111] rounded-3xl p-8 border border-white/5 flex flex-col justify-between gap-8">
                 <div>
-                  <h3 className="text-white/40 text-[10px] uppercase font-bold tracking-widest mb-6">Social Discovery</h3>
+                  <h3 className="text-white/40 text-[10px] uppercase font-bold tracking-widest mb-6">Find Me On</h3>
                   <div className="flex flex-col gap-2">
-                    <MiniSocial label="Instagram" icon={<Instagram className="w-4 h-4" />} />
-                    <MiniSocial label="Rednote" icon={<BookOpen className="w-4 h-4" />} />
-                    <MiniSocial label="Behance" icon={<Palette className="w-4 h-4" />} />
+                    <MiniSocial
+                      label="Xiaohongshu"
+                      icon={<Bookmark className="w-4 h-4" />}
+                      href="https://www.xiaohongshu.com/user/profile/65d438b0000000000401cec4"
+                    />
+                    <MiniSocial
+                      label="Instagram"
+                      icon={<Instagram className="w-4 h-4" />}
+                      href="https://www.instagram.com/gossip_duck_/"
+                    />
+                    <MiniSocial
+                      label="Behance"
+                      icon={<Palette className="w-4 h-4" />}
+                      href="https://www.behance.net/mongjonah"
+                    />
                   </div>
                 </div>
              </motion.div>
              <motion.div variants={itemVariants} className="bg-[#111] rounded-3xl overflow-hidden border border-white/5 group">
                 <div className="h-40 overflow-hidden">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1687093875330-180f8be8d8fa?q=80&w=400"
-                    alt="Map mockup"
+                    src="/portfolio-v1/images/IMG_1850.jpeg"
+                    alt="Contact visual"
                     className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-white/80 text-xs font-medium">Vinohradská 121, Praha 3</span>
+                    <span className="text-white/80 text-xs font-medium">Let’s build something together</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-white/20 group-hover:text-white transition-colors" />
                   </div>
                 </div>
@@ -137,9 +177,20 @@ export const Contact: React.FC = () => {
   );
 };
 
-const MiniSocial = ({ label, icon }: { label: string, icon: React.ReactNode }) => (
-  <motion.div 
+const MiniSocial = ({
+  label,
+  icon,
+  href,
+}: {
+  label: string;
+  icon: React.ReactNode;
+  href: string;
+}) => (
+  <motion.a
     whileHover={{ x: 4 }}
+    href={href}
+    target="_blank"
+    rel="noreferrer"
     className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all cursor-pointer group"
   >
     <div className="flex items-center gap-3">
@@ -147,5 +198,5 @@ const MiniSocial = ({ label, icon }: { label: string, icon: React.ReactNode }) =
        <span className="text-white/60 text-[10px] font-bold uppercase tracking-widest group-hover:text-white transition-colors">{label}</span>
     </div>
     <ArrowUpRight className="w-3 h-3 text-white/10 group-hover:text-white transition-colors" />
-  </motion.div>
+  </motion.a>
 );

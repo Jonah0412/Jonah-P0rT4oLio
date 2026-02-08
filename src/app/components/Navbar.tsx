@@ -9,6 +9,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
   const navItems = [
     { name: "Work", path: "work" },
+    { name: "Gallery", path: "gallery" },
     { name: "About", path: "about" },
     { name: "Contact", path: "contact" },
   ];
@@ -20,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
         className="px-5 py-2 cursor-pointer flex items-center gap-3 group"
       >
         <div className="w-2.5 h-2.5 rounded-full bg-[#c5e6a6] group-hover:scale-125 transition-transform" />
-        <span className="font-bold tracking-widest text-white text-[10px] uppercase">hanssen</span>
+        <span className="font-bold tracking-widest text-white text-[10px] uppercase">gossip duck</span>
       </div>
       
       <div className="flex items-center gap-1 ml-4 pr-1">

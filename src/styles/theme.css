@@ -1,5 +1,13 @@
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "Audiowide";
+  src: url("/fonts/Audiowide-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-size: 16px;
   --background: #ffffff;
@@ -126,6 +134,11 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Audiowide", sans-serif;
+  }
+
+  .font-sans {
+    font-family: "Audiowide", sans-serif;
   }
 
   /**

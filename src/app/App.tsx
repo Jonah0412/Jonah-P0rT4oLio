@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Navbar } from "@/app/components/Navbar";
-import { Home } from "@/app/components/Home";
-import { About } from "@/app/components/About";
-import { Contact } from "@/app/components/Contact";
-import { Work } from "@/app/components/Work";
-import { Footer } from "@/app/components/Footer";
-import { Loader } from "@/app/components/Loader";
+import { Navbar } from "./components/Navbar";
+import { Home } from "./components/Home";
+import { About } from "./components/About";
+import { Contact } from "./components/Contact";
+import { Work } from "./components/Work";
+import { Gallery } from "./components/Gallery";
+import { Footer } from "./components/Footer";
+import { Loader } from "./components/Loader";
 import { motion, AnimatePresence } from "motion/react";
 
-type Page = "home" | "work" | "about" | "contact";
+type Page = "home" | "work" | "gallery" | "about" | "contact";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
@@ -24,6 +25,8 @@ export default function App() {
         return <Home key="home" />;
       case "work":
         return <Work key="work" />;
+      case "gallery":
+        return <Gallery key="gallery" />;
       case "about":
         return <About key="about" />;
       case "contact":
@@ -45,7 +48,7 @@ export default function App() {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
         staggerChildren: 0.1,
       },
     },
@@ -55,7 +58,7 @@ export default function App() {
       scale: 1.02,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -74,7 +77,7 @@ export default function App() {
         >
           <Navbar currentPath={currentPage} onNavigate={(path) => setCurrentPage(path as Page)} />
           
-          <main className="max-w-[1536px] mx-auto overflow-hidden">
+          <main className="max-w-[1536px] mx-auto w-full">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={currentPage}
