@@ -182,7 +182,7 @@ export const Home: React.FC = () => {
 
             <motion.div variants={itemVariants} className="flex flex-col gap-2 md:mt-6">
               <SocialLink icon={<Instagram className="w-4 h-4" />} label="Instagram" href="https://www.instagram.com/gossip_duck_/" />
-              <SocialLink icon={<Instagram className="w-4 h-4" />} label="Instagram (Personal)" href="#" />
+              <SocialLink icon={<Instagram className="w-4 h-4" />} label="Instagram (Personal)" href="https://www.instagram.com/jmfy_04?igsh=eGRiNnU5bWVtZjNh&utm_source=qr" />
               <SocialLink icon={<BookOpen className="w-4 h-4" />} label="Xiaohongshu" href="https://www.xiaohongshu.com/user/profile/65d438b0000000000401cec4" />
               <SocialLink icon={<Palette className="w-4 h-4" />} label="Behance" href="https://www.behance.net/mongjonah" />
             </motion.div>
