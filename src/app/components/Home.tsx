@@ -27,10 +27,10 @@ const itemVariants = {
 
 export const Home: React.FC = () => {
   return (
-    <div className="pt-24 px-4">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+    <div className="pt-24 px-4 lg:h-screen lg:overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:h-[calc(100vh-120px)]">
         {/* Left: Fixed Area (on desktop) */}
-        <div className="lg:col-span-6 lg:h-[calc(100vh-120px)] lg:sticky lg:top-24 flex flex-col gap-4">
+        <div className="lg:col-span-6 h-full flex flex-col gap-4">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -82,7 +82,7 @@ export const Home: React.FC = () => {
         {/* Right: Scrolling Content */}
         <motion.div 
           variants={containerVariants}
-          className="lg:col-span-6 flex flex-col gap-4 pb-12"
+          className="lg:col-span-6 lg:overflow-y-auto lg:pr-2 flex flex-col gap-4 pb-12 custom-scrollbar"
         >
           {/* Profile Card */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

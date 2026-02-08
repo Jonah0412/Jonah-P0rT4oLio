@@ -3,12 +3,25 @@ import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { Instagram, BookOpen, Palette, ArrowUpRight, Mail, MapPin, Send } from "lucide-react";
 import { motion } from "motion/react";
 
+const containerVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
 export const Contact: React.FC = () => {
   return (
-    <div className="pt-24 px-4 pb-12">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+    <div className="pt-24 px-4 lg:h-screen lg:overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:h-[calc(100vh-120px)]">
         {/* Left: Fixed Image (on desktop) */}
-        <div className="lg:col-span-6 lg:h-[calc(100vh-120px)] lg:sticky lg:top-24 rounded-3xl overflow-hidden">
+        <div className="lg:col-span-6 h-full rounded-3xl overflow-hidden relative">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -46,10 +59,12 @@ export const Contact: React.FC = () => {
         </div>
 
         {/* Right: Scrolling Form and Details */}
-        <div className="lg:col-span-6 flex flex-col gap-4">
+        <motion.div 
+          variants={containerVariants}
+          className="lg:col-span-6 lg:overflow-y-auto lg:pr-2 flex flex-col gap-4 pb-12 custom-scrollbar"
+        >
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            variants={itemVariants}
             className="bg-[#111] rounded-3xl p-8 lg:p-12 border border-white/5"
           >
             <form className="flex flex-col gap-8" onSubmit={(e) => e.preventDefault()}>
@@ -90,7 +105,7 @@ export const Contact: React.FC = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-             <div className="bg-[#111] rounded-3xl p-8 border border-white/5 flex flex-col justify-between gap-8">
+             <motion.div variants={itemVariants} className="bg-[#111] rounded-3xl p-8 border border-white/5 flex flex-col justify-between gap-8">
                 <div>
                   <h3 className="text-white/40 text-[10px] uppercase font-bold tracking-widest mb-6">Social Discovery</h3>
                   <div className="flex flex-col gap-2">
@@ -99,8 +114,8 @@ export const Contact: React.FC = () => {
                     <MiniSocial label="Behance" icon={<Palette className="w-4 h-4" />} />
                   </div>
                 </div>
-             </div>
-             <div className="bg-[#111] rounded-3xl overflow-hidden border border-white/5 group">
+             </motion.div>
+             <motion.div variants={itemVariants} className="bg-[#111] rounded-3xl overflow-hidden border border-white/5 group">
                 <div className="h-40 overflow-hidden">
                   <ImageWithFallback
                     src="https://images.unsplash.com/photo-1687093875330-180f8be8d8fa?q=80&w=400"
@@ -114,9 +129,9 @@ export const Contact: React.FC = () => {
                     <ArrowUpRight className="w-3.5 h-3.5 text-white/20 group-hover:text-white transition-colors" />
                   </div>
                 </div>
-             </div>
+             </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

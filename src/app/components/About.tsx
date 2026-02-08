@@ -21,12 +21,25 @@ const AWARDS = [
   { title: "Excellence in Visual Storytelling", year: "2022" },
 ];
 
+const containerVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
 export const About: React.FC = () => {
   return (
-    <div className="pt-24 px-4 pb-12">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+    <div className="pt-24 px-4 lg:h-screen lg:overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:h-[calc(100vh-120px)]">
         {/* Left: Huge Profile Image (Fixed on desktop) */}
-        <div className="lg:col-span-6 lg:h-[calc(100vh-120px)] lg:sticky lg:top-24 rounded-3xl overflow-hidden">
+        <div className="lg:col-span-6 h-full rounded-3xl overflow-hidden relative">
           <motion.div 
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -61,10 +74,12 @@ export const About: React.FC = () => {
         </div>
 
         {/* Right: Content (Scrolling) */}
-        <div className="lg:col-span-6 flex flex-col gap-4">
+        <motion.div 
+          variants={containerVariants}
+          className="lg:col-span-6 lg:overflow-y-auto lg:pr-2 flex flex-col gap-4 pb-12 custom-scrollbar"
+        >
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            variants={itemVariants}
             className="bg-[#111] rounded-3xl p-8 lg:p-16 flex flex-col gap-16 border border-white/5"
           >
             <section className="flex flex-col gap-8">
@@ -148,7 +163,7 @@ export const About: React.FC = () => {
               </motion.button>
             </section>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
