@@ -155,8 +155,8 @@ export const About: React.FC = () => {
                 <SocialLink icon={<Palette className="w-4 h-4" />} label="Behance" />
               </div>
               <motion.button 
-                whileHover={{ scale: 1.01, backgroundColor: "#fff", color: "#000" }}
-                className="w-full bg-white/5 text-white border border-white/10 rounded-2xl p-6 flex items-center justify-between group transition-all"
+                whileHover={{ scale: 1.01 }}
+                className="w-full bg-white/5 text-white border border-white/10 rounded-2xl p-6 flex items-center justify-between group transition-all hover:bg-white hover:text-black"
               >
                 <span className="text-sm font-bold uppercase tracking-widest">Get in touch</span>
                 <Mail className="w-5 h-5" />
@@ -171,8 +171,7 @@ export const About: React.FC = () => {
 
 const SocialLink = ({ icon, label }: { icon: React.ReactNode, label: string }) => (
   <motion.button 
-    whileHover={{ backgroundColor: "rgba(255,255,255,0.05)" }}
-    className="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 transition-colors group"
+    className="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 transition-all group hover:bg-white/10"
   >
     <div className="flex items-center gap-3">
       <span className="text-white/30 group-hover:text-white transition-colors">{icon}</span>

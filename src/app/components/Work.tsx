@@ -177,8 +177,8 @@ export const Work: React.FC = () => {
 
 const SocialLink = ({ icon, label }: { icon: React.ReactNode, label: string }) => (
   <motion.button 
-    whileHover={{ backgroundColor: "rgba(255,255,255,0.05)", y: -2 }}
-    className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 transition-all group"
+    whileHover={{ y: -2 }}
+    className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 transition-all group hover:bg-white/10"
   >
     <div className="flex items-center gap-3">
       <span className="text-white/30 group-hover:text-white transition-colors">{icon}</span>

@@ -95,9 +95,9 @@ export const Contact: React.FC = () => {
                 />
               </div>
               <motion.button 
-                whileHover={{ scale: 1.01, backgroundColor: "#f3f3f3" }}
+                whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-white text-black rounded-2xl p-5 text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3"
+                className="w-full bg-white text-black rounded-2xl p-5 text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-[#f3f3f3] transition-colors"
               >
                 Send Inquiry <Send className="w-3.5 h-3.5" />
               </motion.button>
